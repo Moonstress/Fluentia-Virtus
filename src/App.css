@@ -1,0 +1,59 @@
+/*---------------HEADER------------*/
+
+header {
+  display: grid;
+  justify-items:  stretch;
+  background-color: #00072C;
+  padding: 20px;
+  text-align: center;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-areas: "left middle right";
+  
+}
+
+header div {
+  font-size: 18px;
+  font-family: 'Roboto Condensed', sans-serif;
+  color: #00B3B3;
+  display: inline-block;
+}
+
+.nav-item {
+  margin-right: 10px;
+}
+
+.left {
+  grid-area: "left";
+  align-self: center;
+  justify-self: start;
+}
+
+.middle {
+  grid-area: "middle";
+  font-size: 2em;
+  font-family: 'Sacramento', cursive;
+  letter-spacing: 15px;
+  align-self: center;
+}
+
+.right {
+  grid-area: "right";  
+  align-self: center;
+  justify-self: end;
+  margin-right: 20px;
+}
+
+
+/* --------- LANDING -------- */
+.background-image {
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.2), rgba(0, 128, 128, 0.5)), url('/Landing.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 94vh;
+}
+
+
+.key-values {
+  height: 200px;
+  border-top: 40px solid #00072C;
+}

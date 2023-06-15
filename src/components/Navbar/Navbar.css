@@ -1,0 +1,44 @@
+/*---------------HEADER------------*/
+
+header {
+    display: grid;
+    justify-items:  stretch;
+    background-color: #00072C;
+    padding: 20px;
+    text-align: center;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas: "left middle right";
+    
+  }
+  
+  header div {
+    font-size: 18px;
+    font-family: 'Roboto Condensed', sans-serif;
+    color: #00B3B3;
+    display: inline-block;
+  }
+  
+  .nav-item {
+    margin-right: 10px;
+  }
+  
+  .left {
+    grid-area: "left";
+    align-self: center;
+    justify-self: start;
+  }
+  
+  .middle {
+    grid-area: "middle";
+    font-size: 2em;
+    font-family: 'Sacramento', cursive;
+    letter-spacing: 15px;
+    align-self: center;
+  }
+  
+  .right {
+    grid-area: "right";  
+    align-self: center;
+    justify-self: end;
+    margin-right: 20px;
+  }
