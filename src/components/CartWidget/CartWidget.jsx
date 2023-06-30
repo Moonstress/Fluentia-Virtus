@@ -1,5 +1,5 @@
 import './CartWidget.css'
-import ItemCount from '../ItemCount/ItemCount'
+
 
 const CartWidget = () => {
   return (

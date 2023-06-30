@@ -1,24 +1,34 @@
-import React from 'react'
 import { useState } from 'react'
-import '../Navbar/Navbar.css'
+import './ItemCount.css'
 
-const ItemCount = () => {
+const ItemCount = ({ stock, initial }) => {
+    const [count, setCount] = useState(initial);
 
-    const [count, setCount ] = useState(1);
 
     const add = () => {
-        setCount(count + 1);
+        if (count < stock) {
+            setCount(count + 1);
+        }
     }
 
     const subtract = () => {
-        setCount(count - 1);
+        if (count > 1) {
+            setCount(count - 1);
+        }
     }
 
     return (
-        <div>
-            {/* <button onClick={subtract}> - </button> */}
-            <div className='count'>{count}</div>
-            {/* <button onClick={add}> + </button> */}
+        <div className='Counter'>
+            <div className='Controls'>
+                <button className="btn btn-light" onClick={subtract}> - </button>
+                <div className='Count'>{count}</div>
+                <button className="btn btn-light" onClick={add}> + </button>
+            </div>
+            <div>
+                <button type="button" className="btn btn-light" data-bs-toggle="button" onClick={() => onAdd(count)} disabled={!stock}>
+                    Agregar al Carrito
+                </button>
+            </div>
         </div>
     )
 }

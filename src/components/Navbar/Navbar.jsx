@@ -13,6 +13,7 @@ const Navbar = () => {
             </div>
             <div className="middle">Fluentia Virtus</div>
             <div className="right"><CartWidget/></div>
+            
         </header>
 
     )
