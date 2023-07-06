@@ -1,32 +1,27 @@
 import { useState, useEffect } from "react"
-import "./ItemListContainer.css"
-
+import { getProductos, getProductosPorCategoria } from "../../asyncmock"
+import ItemList from "../ItemList/ItemList"
+import { useParams } from "react-router-dom"
 
 const ItemListContainer = () => {
-
-  const [quote, setQuote] = useState("");
-  const [author, setAuthor] = useState("");
+  const [productos, setProductos] = useState([]);
+  const { idCategoria } = useParams();
 
   useEffect(() => {
 
-    fetch('https://dummyjson.com/quotes/random')
-      .then(res => res.json())
-      .then(data => {
-        console.log(data);
-        setQuote(data.quote);
-        setAuthor(data.author);
-      });
+    const funcion = idCategoria ? getProductosPorCategoria : getProductos;
+    funcion(idCategoria)
+      .then(res => setProductos(res))
+      .catch(error => console.log(error))
+
+  }, [idCategoria])
 
 
-  }, [])
   return (
-    <div className="quotes">
-      <h4>{quote}</h4>
-      <h5>- {author}</h5>
-    </div>
-
+    <>
+      <ItemList productos={productos} />
+    </>
   )
-
 }
 
 export default ItemListContainer

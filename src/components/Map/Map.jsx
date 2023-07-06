@@ -2,7 +2,6 @@ import './Map.css'
 
 const Map = () => {
 
-
     const productos = [
         { id: 1, img: "/AM_1px2.png", nombre: "Plan Mensual Individual Normal", descripcion: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ex obcaecati, ad, repellendus error unde eaque magni rerum magnam libero aut aliquid perferendis rem asperiores excepturi ratione adipisci aliquam. Rerum, officia.", precio: "$144.000" },
         { id: 2, img: "/AM_1px3.png", nombre: "Plan Mensual Individual Intensivo", descripcion: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ex obcaecati, ad, repellendus error unde eaque magni rerum magnam libero aut aliquid perferendis rem asperiores excepturi ratione adipisci aliquam. Rerum, officia.", precio: "$216.000" },
@@ -22,7 +21,8 @@ const Map = () => {
                         <div>
                             <h5 className="card-title">{producto.nombre}</h5>
                             <p className="card-text">{producto.descripcion}</p>
-                            <a href="#" className="btn btn-primary">Go somewhere</a>
+                            <a href="#" className="btn btn-primary">Ver Detalles</a>
+                            
                         </div>
 
                     </div>

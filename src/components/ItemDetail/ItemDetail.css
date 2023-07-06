@@ -1,0 +1,17 @@
+.imgDetail {
+    width: 100%;
+}
+
+.contenedorItem {
+    height: 50vh;
+    background-color: white;
+    margin-top: 6%;
+}
+
+.table {    
+    width: 50%;
+    display: inline-block;
+    min-height: 50%;
+    padding: 20px;
+    
+}
