@@ -14,7 +14,7 @@ const App = () => {
         <API />
         <Navbar />
         <Routes>
-        <Route path="/" element={<Landing />} />  
+        <Route path="/" element={<><Landing /> <ItemListContainer/></>}  />  
         <Route path="/categoria/:idCategoria" element={<ItemListContainer/>} />
         <Route path="/item/:idItem" element={<ItemDetailContainer/>} />
         </Routes>

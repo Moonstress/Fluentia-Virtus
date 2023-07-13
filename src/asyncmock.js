@@ -3,6 +3,8 @@ const misProductos = [
     { id: "2", idCat: 'AM', img: "/AM_1px3.png", nombre: "Plan Mensual Individual Intensivo", descripcion: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ex obcaecati, ad, repellendus error unde eaque magni rerum magnam libero aut aliquid perferendis rem asperiores excepturi ratione adipisci aliquam. Rerum, officia.", precio: "$216.000" },
     { id: "3", idCat: 'AM',  img: "/AM_2px2.png", nombre: "3", descripcion: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ex obcaecati, ad, repellendus error unde eaque magni rerum magnam libero aut aliquid perferendis rem asperiores excepturi ratione adipisci aliquam. Rerum, officia.", precio: "$224.000" },
     { id: "4", idCat: 'AM',  img: "/AM_2px3.png", nombre: "4", descripcion: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ex obcaecati, ad, repellendus error unde eaque magni rerum magnam libero aut aliquid perferendis rem asperiores excepturi ratione adipisci aliquam. Rerum, officia.", precio: "$336.000" },
+    { id: "5", idCat: 'AI',  img: "/AM_2px2.png", nombre: "3", descripcion: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ex obcaecati, ad, repellendus error unde eaque magni rerum magnam libero aut aliquid perferendis rem asperiores excepturi ratione adipisci aliquam. Rerum, officia.", precio: "$224.000" },
+    { id: "6", idCat: 'AI',  img: "/AM_2px3.png", nombre: "4", descripcion: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ex obcaecati, ad, repellendus error unde eaque magni rerum magnam libero aut aliquid perferendis rem asperiores excepturi ratione adipisci aliquam. Rerum, officia.", precio: "$336.000" },
 ]
 
 export const getProductos = () => {

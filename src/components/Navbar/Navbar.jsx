@@ -8,7 +8,7 @@ const Navbar = () => {
 
         <header>
             <div className="left">
-                <NavLink to='/categoria/1'>
+                <NavLink to='/categoria/AI'>
                     <div className="nav-item">APRENDE INGLÉS</div>
                 </NavLink>
                 <NavLink to='/categoria/AM'>
