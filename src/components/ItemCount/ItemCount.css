@@ -1,0 +1,23 @@
+.Counter {
+    padding: 10px;
+    justify-content: center;
+    display: grid;
+
+}
+
+.Controls {
+    display: flex;
+}
+
+.Count {
+    
+    font-size: 2rem;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.btn-cart {
+    background-color: #00072c !important;
+    
+    color: white !important;
+}

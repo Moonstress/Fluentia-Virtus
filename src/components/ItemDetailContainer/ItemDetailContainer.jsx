@@ -10,13 +10,14 @@ const ItemDetailContainer = () => {
 
   useEffect(() => {
     getUnProducto(idItem)
-      .then(res => setProducto(res))
-  }, [idItem])
-  return (
-    <div>
-      <ItemDetail {...producto} />
-    </div>
-  )
-}
+      .then((res) => setProducto(res))
+      .catch((error) => {
+        // Handle error if necessary
+        console.error("Error fetching product:", error);
+      });
+  }, [idItem]);
 
-export default ItemDetailContainer
+  return <div>{producto ? <ItemDetail {...producto} /> : <p>Loading...</p>}</div>;
+};
+
+export default ItemDetailContainer;
