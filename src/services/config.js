@@ -2,12 +2,9 @@
 import { initializeApp } from "firebase/app"; //Inicializaciòn
 import {getFirestore} from "firebase/firestore"; // Instancia
 
-
-
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyCNF9qukVdD0UYYe6cOfTMAnDsUvqe_w6U",
   authDomain: "fluentiavirtus.firebaseapp.com",
   projectId: "fluentiavirtus",
   storageBucket: "fluentiavirtus.appspot.com",

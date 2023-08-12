@@ -1,14 +1,14 @@
 import React from 'react'
 import Navbar from './components/Navbar/Navbar.jsx'
 import API from './components/API/API.jsx'
-import Landing from '../src/components/Landing.jsx'
-import { BrowserRouter, Routes, Route } from "react-router-dom"
-import { CarritoProvider } from './context/CarritoContext.jsx'
+import Landing from '../src/components/Landing/Landing.jsx'
 import Cart from './components/Cart/Cart.jsx'
 import Productos from './components/Productos/Productos.jsx'
 import ItemListContainer from './components/ItemListContainer/ItemListContainer.jsx'
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer.jsx'
 import Checkout from './components/Checkout/Checkout.jsx'
+import { BrowserRouter, Routes, Route } from "react-router-dom"
+import { CarritoProvider } from './context/CarritoContext.jsx'
 
 const App = () => {
   return (

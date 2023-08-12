@@ -12,15 +12,14 @@ const Navbar = () => {
                     <div className="nav-item">APRENDE INGLÉS</div>
                 </NavLink>
                 <NavLink to='/categoria/AM'>
-                <div className="nav-item">ACREDITACIÓN MILITAR</div>
+                    <div className="nav-item">ACREDITACIÓN MILITAR</div>
                 </NavLink>
                 <div className="nav-item">PREPARACIÓN DE EXÁMENES</div>
             </div>
             <Link to="/">
-            <div className="middle">Fluentia Virtus</div>
+                <div className="middle">Fluentia Virtus</div>
             </Link>
             <div className="right"><CartWidget /></div>
-
         </header>
 
     )

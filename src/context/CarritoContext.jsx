@@ -13,11 +13,11 @@ export const CarritoContext = createContext({
 //El valor inicial es un objeto con la propiedad "carrito", "total" y "cantidadTotal";
 
 
-export const CarritoProvider = ({children}) => {
+export const CarritoProvider = ({ children }) => {
     //3) Creamos el estado para carrito, total y totalCantidad: 
     const [carrito, setCarrito] = useState([]);
     const [total, setTotal] = useState(0);
-    const [cantidadTotal, setCantidadTotal] = useState(0); 
+    const [cantidadTotal, setCantidadTotal] = useState(0);
 
     //Provisoriamente verifico el estado del carrito por consola: 
     console.log(carrito);
@@ -29,7 +29,7 @@ export const CarritoProvider = ({children}) => {
 
     const agregarProducto = (item, cantidad) => {
         const productoExistente = carrito.find(prod => prod.item.id === item.id);
-    
+
         if (!productoExistente) {
             setCarrito(prev => [...prev, { item, cantidad }]);
             setCantidadTotal(prev => prev + cantidad);
@@ -46,8 +46,7 @@ export const CarritoProvider = ({children}) => {
             setCantidadTotal(prev => prev + cantidad);
             setTotal(prev => prev + item.precio * cantidad);
         }
-    };    
-    
+    };
 
     //Función para eliminar producto: 
 
@@ -69,7 +68,7 @@ export const CarritoProvider = ({children}) => {
     }
 
     return (
-        <CarritoContext.Provider value={{carrito, total, cantidadTotal, agregarProducto, eliminarProducto, vaciarCarrito}}>
+        <CarritoContext.Provider value={{ carrito, total, cantidadTotal, agregarProducto, eliminarProducto, vaciarCarrito }}>
             {children}
         </CarritoContext.Provider>
     )

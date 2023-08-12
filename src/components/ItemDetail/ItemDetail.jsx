@@ -1,11 +1,9 @@
 import ItemCount from '../ItemCount/ItemCount';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import './ItemDetail.css'
-
 import { CarritoContext } from '../../context/CarritoContext';
 import { useContext } from 'react';
-
+import './ItemDetail.css'
 
 const ItemDetail = ({ id, stock, img, nombre, descripcion, precio }) => {
 
@@ -34,7 +32,7 @@ const ItemDetail = ({ id, stock, img, nombre, descripcion, precio }) => {
         }
       </div>
     </div>
-);
+  );
 }
 
 export default ItemDetail;

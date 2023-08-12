@@ -1,10 +1,9 @@
 import { useState, useEffect } from "react"
-//import { getProductos, getProductosPorCategoria } from "../../asyncmock"
+//IF WE DONT WANT TO USE FIREBASE: import { getProductos, getProductosPorCategoria } from "../../asyncmock"
 import ItemList from "../ItemList/ItemList"
 import { useParams } from "react-router-dom"
 
-//FIRESTORE
-
+//FIREBASE
 import { collection, getDocs, where, query } from "firebase/firestore";
 import { db } from "../../services/config"
 
@@ -21,8 +20,8 @@ const ItemListContainer = () => {
     getDocs(misProductos)
       .then(response => {
         const nuevosProductos = response.docs.map(doc => {
-          const data =doc.data()
-          return {id:doc.id, ...data}
+          const data = doc.data()
+          return { id: doc.id, ...data }
         })
         setProductos(nuevosProductos);
       })
@@ -31,7 +30,7 @@ const ItemListContainer = () => {
   }, [idCategoria])
 
 
-  //asynckmock
+  ////IF WE DONT WANT TO USE FIREBASE: asynckmock
   /* useEffect(() => {
 
     const funcion = idCategoria ? getProductosPorCategoria : getProductos;
