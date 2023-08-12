@@ -1,0 +1,29 @@
+.imgDetail {
+    width: 100%;
+}
+
+.contenedorItem {
+    height: 50vh;
+    background-color: transparent;
+    margin-top: 6%;
+}
+
+.table {    
+    width: 50%;
+    display: inline-block;
+    min-height: 50%;
+    padding: 20px;
+    
+}
+
+.card {
+    width: 25%;
+    display: inline-flex;
+    min-height: 500px;
+}
+
+
+:root {
+    color: #213547;
+    background-color: transparent !important;
+}

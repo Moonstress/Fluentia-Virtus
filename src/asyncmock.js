@@ -1,4 +1,4 @@
-const misProductos = [
+/*const misProductos = [
     {
       id: "1",
       idCat: "AM",
@@ -12,7 +12,7 @@ const misProductos = [
         "Utilización de Google Classroom",
         "Todos los materiales incluidos",
       ],
-      precio: "$144.000",
+      precio: "144000",
     },
     {
       id: "2",
@@ -27,7 +27,7 @@ const misProductos = [
         "Utilización de Google Classroom",
         "Todos los materiales incluidos",
       ],
-      precio: "$216.000",
+      precio: "216000",
     },
     {
       id: "3",
@@ -42,7 +42,7 @@ const misProductos = [
         "Utilización de Google Classroom",
         "Todos los materiales incluidos",
       ],
-      precio: "$224.000",
+      precio: "224000",
     },
     {
       id: "4",
@@ -57,7 +57,7 @@ const misProductos = [
         "Utilización de Google Classroom",
         "Todos los materiales incluidos",
       ],
-      precio: "$336.000",
+      precio: "336000",
     },
     {
       id: "5",
@@ -72,7 +72,7 @@ const misProductos = [
         "Utilización de Google Classroom",
         "Todos los materiales incluidos",
       ],
-      precio: "$224.000",
+      precio: "224000",
     },
     {
       id: "6",
@@ -87,7 +87,7 @@ const misProductos = [
         "Utilización de Google Classroom",
         "Todos los materiales incluidos",
       ],
-      precio: "$336.000",
+      precio: "336000",
     },
   ];
   
@@ -124,4 +124,4 @@ const misProductos = [
       }, 100);
     });
   };
-  
+  */

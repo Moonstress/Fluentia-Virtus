@@ -7,7 +7,7 @@ import { useState, createContext } from "react";
 export const CarritoContext = createContext({
     carrito: [],
     total: 0,
-    cantidadTotal: 0
+    cantidadTotal: 0,
 })
 
 //El valor inicial es un objeto con la propiedad "carrito", "total" y "cantidadTotal";
@@ -28,26 +28,26 @@ export const CarritoProvider = ({children}) => {
     //Función para agregar productos: 
 
     const agregarProducto = (item, cantidad) => {
-        const productoExistente = carrito.find(prod => prod.item.id === item.id );
-
-        if(!productoExistente) {
-            setCarrito( prev => [...prev, {item, cantidad}]);
+        const productoExistente = carrito.find(prod => prod.item.id === item.id);
+    
+        if (!productoExistente) {
+            setCarrito(prev => [...prev, { item, cantidad }]);
             setCantidadTotal(prev => prev + cantidad);
-            setTotal(prev => prev + (item.precio  * cantidad ))
-            //La sintaxis: prev => [...prev, {item, cantidad}] se utiliza para crear un nuevo array a partir del estado anterior del carrito y agregar un nuevo objeto que representa el producto agregado. 
+            setTotal(prev => prev + item.precio * cantidad);
         } else {
-            const carritoActualizado = carrito.map( prod => {
-                if(prod.item.id === item.id) {
-                    return {...prod, cantidad: prod.cantidad + cantidad};
+            const carritoActualizado = carrito.map(prod => {
+                if (prod.item.id === item.id) {
+                    return { ...prod, cantidad: prod.cantidad + cantidad };
                 } else {
                     return prod;
                 }
-            })
+            });
             setCarrito(carritoActualizado);
             setCantidadTotal(prev => prev + cantidad);
-            setTotal(prev => prev + (item.precio * cantidad));
+            setTotal(prev => prev + item.precio * cantidad);
         }
-    }
+    };    
+    
 
     //Función para eliminar producto: 
 

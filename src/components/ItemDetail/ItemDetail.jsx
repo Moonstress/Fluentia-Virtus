@@ -27,21 +27,14 @@ const ItemDetail = ({ id, stock, img, nombre, descripcion, precio }) => {
       </div>
       <div className='table'>
         <h2>Nombre: {nombre} </h2>
-        <ul>
-          {descripcion.map((desc, index) => (
-            <li key={index}>{desc}</li>
-          ))}
-        </ul>
+        <div dangerouslySetInnerHTML={{ __html: descripcion }} />
         <h2>Precio: {precio} </h2>
         {
-          agregarCantidad > 0 ? (<Link to="/cart"> Terminar Compra </Link>) : (<ItemCount stock={stock} initial={1} onAdd={manejadorCantidad} />)
-
+          agregarCantidad > 0 ? (<Link to="/cart"> <button className="btn btn-primary finalizarCompra">Terminar Compra </button ></Link>) : (<ItemCount stock={stock} initial={1} onAdd={manejadorCantidad} />)
         }
-
       </div>
     </div>
-
-  );
+);
 }
 
 export default ItemDetail;
