@@ -1,0 +1,26 @@
+.productsCart {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  margin: 10px 0;
+  background-color:#00072c;
+  color: white;
+  gap: 30%;
+  margin: 5px;
+}
+
+.productsCart h4 {
+  width: 25%;
+}
+
+
+.item-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+}
+
+.button-container {
+  margin-top: 10px;
+}

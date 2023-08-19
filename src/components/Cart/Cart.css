@@ -1,0 +1,16 @@
+h3 {
+    text-align: right;
+    color: #00072c;
+    margin: 20px;
+    font-size: 1.5rem;
+    font-family: 'Roboto Condensed', sans-serif;
+    
+  }
+
+  .cartButton {
+    display: inline-flex;
+    margin: 10px;
+    background-color: #00072c;
+    color: white;
+    
+  }

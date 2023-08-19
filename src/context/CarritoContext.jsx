@@ -1,39 +1,73 @@
-//1) Voy a importar el hook useState y createContext que me permite crear un contexto que almacenará toda la lógica de mi carrillo de compras. 
-
-import { useState, createContext } from "react";
-
-//2) Creamos el contexto:
+import React, { useState, createContext, useEffect } from "react";
 
 export const CarritoContext = createContext({
     carrito: [],
     total: 0,
     cantidadTotal: 0,
-})
-
-//El valor inicial es un objeto con la propiedad "carrito", "total" y "cantidadTotal";
-
+    agregarProducto: () => {},
+    eliminarProducto: () => {},
+    vaciarCarrito: () => {},
+    initializeCartFromStorage: () => {},
+});
 
 export const CarritoProvider = ({ children }) => {
-    //3) Creamos el estado para carrito, total y totalCantidad: 
     const [carrito, setCarrito] = useState([]);
     const [total, setTotal] = useState(0);
     const [cantidadTotal, setCantidadTotal] = useState(0);
+    const [isLoading, setIsLoading] = useState(true); // Add a loading state
+    const clearLocalStorage = () => {
+        localStorage.removeItem("cartData");
+    };
+    
+    const initializeCartFromStorage = () => {
+        const savedCartData = localStorage.getItem("cartData");
+    
+        if (savedCartData) {
+            const parsedCartData = JSON.parse(savedCartData);
+            setCarrito(parsedCartData);
+            
+            // Calculate total and cantidadTotal here based on parsedCartData
+            const initialTotal = parsedCartData.reduce((accumulator, item) => {
+                return accumulator + item.item.precio * item.cantidad;
+            }, 0);
+            setTotal(initialTotal);
+            
+            const initialCantidadTotal = parsedCartData.reduce((accumulator, item) => {
+                return accumulator + item.cantidad;
+            }, 0);
+            setCantidadTotal(initialCantidadTotal);
+        }
+    };
+    
+    const updateCart = (newCartItem) => {
+        const updatedCart = [...carrito, newCartItem];
+        setCarrito(updatedCart);
+        setCantidadTotal(prev => prev + newCartItem.cantidad);
+        setTotal(prev => prev + newCartItem.item.precio * newCartItem.cantidad);
 
-    //Provisoriamente verifico el estado del carrito por consola: 
-    console.log(carrito);
+        // Update cart data in local storage
+        localStorage.setItem("cartData", JSON.stringify(updatedCart));
+    };
 
-    //4) Agregamos algunos métodos para manipular el carrito de compras: 
+    useEffect(() => {
+        const savedCartData = localStorage.getItem("cartData");
 
+        if (savedCartData) {
+            const parsedCartData = JSON.parse(savedCartData);
+            setCarrito(parsedCartData);
+            setIsLoading(false); // Set loading to false when data is retrieved
+        } else {
+            setIsLoading(false); // If no data, still set loading to false
+        }
+    }, []);
 
-    //Función para agregar productos: 
 
     const agregarProducto = (item, cantidad) => {
         const productoExistente = carrito.find(prod => prod.item.id === item.id);
-
+    
         if (!productoExistente) {
-            setCarrito(prev => [...prev, { item, cantidad }]);
-            setCantidadTotal(prev => prev + cantidad);
-            setTotal(prev => prev + item.precio * cantidad);
+            const newCartItem = { item, cantidad };
+            updateCart(newCartItem);
         } else {
             const carritoActualizado = carrito.map(prod => {
                 if (prod.item.id === item.id) {
@@ -53,11 +87,14 @@ export const CarritoProvider = ({ children }) => {
     const eliminarProducto = (id) => {
         const productoEliminado = carrito.find(prod => prod.item.id === id);
         const carritoActualizado = carrito.filter(prod => prod.item.id !== id);
-
+    
         setCarrito(carritoActualizado);
         setCantidadTotal(prev => prev - productoEliminado.cantidad);
         setTotal(prev => prev - (productoEliminado.item.precio * productoEliminado.cantidad));
-    }
+    
+        // Update cart data in local storage after item is removed
+        localStorage.setItem("cartData", JSON.stringify(carritoActualizado));
+    };
 
     //Función para vaciar el carrito: 
 
@@ -68,8 +105,19 @@ export const CarritoProvider = ({ children }) => {
     }
 
     return (
-        <CarritoContext.Provider value={{ carrito, total, cantidadTotal, agregarProducto, eliminarProducto, vaciarCarrito }}>
-            {children}
+        <CarritoContext.Provider value={{
+            carrito,
+            total,
+            cantidadTotal,
+            agregarProducto,
+            eliminarProducto,
+            vaciarCarrito,
+            initializeCartFromStorage,
+            clearLocalStorage, // Add this function to the context
+        }}>
+            {isLoading ? <p>Loading...</p> : children}
         </CarritoContext.Provider>
     )
 }
+
+export default CarritoContext

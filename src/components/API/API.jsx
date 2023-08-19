@@ -1,7 +1,5 @@
 import { useState, useEffect } from "react"
 import "./API.css"
-import { useFetch } from "../Hooks/useFetch";
-
 
 const API = () => {
 

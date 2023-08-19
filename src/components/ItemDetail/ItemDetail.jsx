@@ -28,7 +28,7 @@ const ItemDetail = ({ id, stock, img, nombre, descripcion, precio }) => {
         <div dangerouslySetInnerHTML={{ __html: descripcion }} />
         <h2>Precio: {precio} </h2>
         {
-          agregarCantidad > 0 ? (<Link to="/cart"> <button className="btn btn-primary finalizarCompra">Terminar Compra </button ></Link>) : (<ItemCount stock={stock} initial={1} onAdd={manejadorCantidad} />)
+          agregarCantidad > 0 ? (<Link to="/cart"> <button className="btn btn-primary finalizarCompra">Continuar Compra</button ></Link>) : (<ItemCount stock={stock} initial={1} onAdd={manejadorCantidad} />)
         }
       </div>
     </div>

@@ -9,7 +9,6 @@ const CartWidget = () => {
   const { cantidadTotal } = useContext(CarritoContext);
 
 
-
   return (
 
     <div><Link to="/cart">
