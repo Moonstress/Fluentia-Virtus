@@ -1,12 +1,15 @@
-// IF WE DONT WANT TO USE FIREBASE : import { getUnProducto } from "../../asyncmock";
-import { useState, useEffect } from "react";
-import ItemDetail from "../ItemDetail/ItemDetail";
+import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-
-//FIREBASE
+import ItemDetail from "../ItemDetail/ItemDetail";
 import { getDoc, doc } from "firebase/firestore";
 import { db } from "../../services/config";
 
+/**
+ * Displays the details of a specific product.
+ *
+ * @component
+ * @return {JSX.Element} ItemDetailContainer component
+ */
 const ItemDetailContainer = () => {
   const [producto, setProducto] = useState(null);
 
@@ -18,25 +21,24 @@ const ItemDetailContainer = () => {
     getDoc(nuevoDoc)
       .then(res => {
         const data = res.data();
-        const nuevoProducto = { id: res.id, ...data }
+        const nuevoProducto = { id: res.id, ...data };
         setProducto(nuevoProducto);
       })
-      .catch()
+      .catch(error => {
+        console.error("Error fetching product:", error);
+      });
 
-  }, [idItem])
+  }, [idItem]);
 
-  //IF WE DONT WANT TO USE FIREBASE
-
-  /*   useEffect(() => {
-      getUnProducto(idItem)
-        .then((res) => setProducto(res))
-        .catch((error) => {
-          // Handle error if necessary
-          console.error("Error fetching product:", error);
-        });
-    }, [idItem]); */
-
-  return <div>{producto ? <ItemDetail {...producto} /> : <p>Loading...</p>}</div>;
+  return (
+    <div>
+      {producto ? (
+        <ItemDetail {...producto} />
+      ) : (
+        <p>Loading...</p>
+      )}
+    </div>
+  );
 };
 
 export default ItemDetailContainer;
